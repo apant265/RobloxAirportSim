@@ -40,28 +40,32 @@ rojo --version
 
 You should see the version of Rojo you have installed.
 
-Step 4: Install Roblox Studio
+You should see the version of Rojo you have installed.
+
+## Step 4: Install Roblox Studio
 1. Download and install Roblox Studio if you don't have it already.
 2. Open Roblox Studio and log in to your account.
-Step 5: Install Rojo Plugin in Roblox Studio
+
+## Step 5: Install Rojo Plugin in Roblox Studio
 1. Install the Rojo 7 Plugin directly from the Roblox Studio store.
 2. Once installed, enable the plugin from the "Plugins" tab in Roblox Studio.
-Step 6: Clone the GitHub Repository
+
+## Step 6: Clone the GitHub Repository
 1. Open Git Bash or a terminal and navigate to the folder where you want to store the project.
 2. Clone the project repository from GitHub using the following command:
-```bash
-git clone https://github.com/apant265/RobloxAirportSim
-```
-3. Once cloned, open the folder in Visual Studio Code.
-Step 7: Start Rojo
-1. In Visual Studio Code, navigate to the terminal and run the following command to start Rojo:
-```bash
-rojo serve
-```
-2. Ensure that Roblox Studio is open, and Rojo will automatically sync your project with Roblox Studio.
-Step 8: Working with Rojo and VS Code
-With Rojo set up, you can now use VS Code to edit your Roblox scripts and resources. Any changes made in VS Code will automatically be reflected in Roblox Studio via Rojo.
 
-Contributing
-For contributions or issues, feel free to submit a pull request or open an issue in the GitHub Repository.
-You're now ready to start developing! 🎮🚀
+   ```bash
+   git clone https://github.com/apant265/RobloxAirportSim
+    ```
+3. Once cloned, open the folder in Visual Studio Code.
+
+##Step 7: Start Rojo
+In Visual Studio Code, navigate to the terminal and run the following command to start Rojo:
+
+```bash
+>Rojo:Open Menu
+```
+
+Run default.project.json
+
+Now go to studio, go to plugins, open Rojo and press connect
