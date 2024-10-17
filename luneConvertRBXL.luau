@@ -1,28 +1,30 @@
-local remodel = require("./remodel")
 local process = require("@lune/process")
-local roblox = require("@lune/roblox")
 local fs = require("@lune/fs")
+local roblox = require("@lune/roblox")
+local io = require("@lune/stdio")
 
-if #process.args ~= 2 then
-	error("Wrong Number of args supplied, " .. #process.args .. " received, 2 expected")
+
+-- Here we load a file just like in the first example
+
+local confirm = io.prompt("confirm", "The file to convert is currently " .. process.args[1] .. ". Is this correct?")
+if not confirm then 
+print("Please re-run the program with the correct file")
+process.exit(0)
+else 
+print("Converting file now...")
 end
 
-for test in process.args do
-print(process.args[test])
-end
-
-print(fs)
-if not fs.isDir(toString(process.args[2])) then 
-fs.writeDir("process.args[2]")
-end
-
--- One use for Remodel is to move the terrain of one place into another place.
-local inputPlaceFile = fs.readFile(process.args[1])
-local inputPlace = roblox.deserializePlace(inputPlaceFile)
-local models = inputPlace.ReplicatedStorage.Models
+local file = fs.readFile(process.args[1])
+local game = roblox.deserializePlace(file)
+local workspace = game:GetService("Workspace")
  
-for _, model in ipairs(Models:GetChildren()) do
-	-- Save out each child as an rbxm model
-	local outModel = roblox.serializePlace(model)
-	fs.writeFile(process.args[2] .. model.Name .. ".rbxm", outModel)
+-- Make sure a directory exists to save our models in
+fs.writeDir("assets")
+ 
+-- Then we save all of our instances in Workspace as model files, in our new directory
+-- Note that a model file can actually contain several instances at once, so we pass a table here
+for _, child in workspace:GetChildren() do
+	file = roblox.serializeModel({ child })
+	fs.writeFile("assets/" .. child.Name .. ".rbxm", file)
+	print("writing file assets/" .. child.Name .. ".rbxm")
 end
