@@ -20,6 +20,38 @@
         "$path": "src/StarterPlayer/StarterPlayerScripts"
       },
       "$ignoreUnknownInstances": true
+    },
+    "Workspace": {
+      "$className": "Workspace",
+      "Baseplate": {
+        "$path": "./assets/Baseplate.rbxm"
+      },
+      "Folder": {
+        "Part": {
+          "$properties": {
+            "Position": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "$path": "./assets/Block.rbxm"
+        },
+        "$path": "./assets/Folder.rbxm"
+      },
+      "spawnlocation": {
+        "$properties": {
+          "Position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "$path": "./assets/spawnlocation.rbxm"
+      },
+      "$properties": {
+        "Gravity": 90.0
+      }
     }
   }
 }
