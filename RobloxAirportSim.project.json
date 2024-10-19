@@ -4,19 +4,16 @@
     "$className": "DataModel",
     "ReplicatedStorage": {
       "$className": "ReplicatedStorage",
-      "$ignoreUnknownInstances": true,
       "$path": "src/ReplicatedStorage"
     },
     "ServerScriptService": {
       "$className": "ServerScriptService",
-      "$ignoreUnknownInstances": true,
       "$path": "src/ServerScriptService"
     },
     "StarterPlayer": {
       "$className": "StarterPlayer",
       "StarterPlayerScripts": {
         "$className": "StarterPlayerScripts",
-        "$ignoreUnknownInstances": true,
         "$path": "src/StarterPlayer/StarterPlayerScripts"
       },
       "$ignoreUnknownInstances": true
@@ -27,7 +24,7 @@
         "$path": "./assets/Baseplate.rbxm"
       },
       "CatapultAssets":{
-        "$path": "./assets/IntroToStudioCatapult.rbxm"
+        "$path": "./assets/CatapultAssets"
       },
       "spawnlocation": {
         "$properties": {

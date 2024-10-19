@@ -71,8 +71,7 @@ function convertInstance(instance, location)
 			local out = roblox.serializeModel({ child })
 			writeToFS(child.Name, ".rbxm", location, out)
 		elseif child:IsA("LuaSourceContainer") then 
-			local out = roblox.serializeModel({ child })
-			writeToFS(child.Name, ".luau", location, out)
+			writeToFS(child.Name, ".luau", location, child.Source)
 		else
 			print("The class type " .. child.ClassName .. " on item " .. child.Name .. " slated for location " .. location .. " has not been implemented yet.") 
 			if io.prompt("confirm", "Would you like this file to be stored as a .rbxm (model) file?") then 
