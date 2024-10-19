@@ -26,18 +26,8 @@
       "Baseplate": {
         "$path": "./assets/Baseplate.rbxm"
       },
-      "Folder": {
-        "Part": {
-          "$properties": {
-            "Position": [
-              0.0,
-              0.0,
-              0.0
-            ]
-          },
-          "$path": "./assets/Block.rbxm"
-        },
-        "$path": "./assets/Folder.rbxm"
+      "CatapultAssets":{
+        "$path": "./assets/IntroToStudioCatapult.rbxm"
       },
       "spawnlocation": {
         "$properties": {
