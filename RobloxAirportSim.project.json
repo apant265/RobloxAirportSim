@@ -16,17 +16,25 @@
         "$className": "StarterPlayerScripts",
         "$path": "src/StarterPlayer/StarterPlayerScripts"
       },
-      "$ignoreUnknownInstances": true
+      "StarterCharacterScripts": {
+        "$className": "StarterCharacterScripts",
+        "$path": "src/StarterPlayer/StarterCharacterScripts"
+      }
+    },
+    "StarterGui":{
+      "$className": "StarterGui",
+      "$path": "./assets/StarterGui/"
     },
     "Workspace": {
       "$className": "Workspace",
       "Baseplate": {
         "$path": "./assets/Baseplate.rbxm"
       },
-      "CatapultAssets":{
-        "$path": "./assets/CatapultAssets"
+      "IntroToStudioCatapult":{
+        "$path": "./assets/IntroToStudioCatapult/"
       },
-      "spawnlocation": {
+      
+      "SpawnLocation": {
         "$properties": {
           "Position": [
             0.0,
@@ -37,7 +45,6 @@
         "$path": "./assets/spawnlocation.rbxm"
       },
       "$properties": {
-        "Gravity": 90.0
       }
     }
   }

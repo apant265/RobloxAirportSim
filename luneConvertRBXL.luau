@@ -64,14 +64,28 @@ function convertInstance(instance, location)
 		local nestedChildren = child:GetChildren()
 		local name = child.Name
 		local class = child.ClassName
-		if child.ClassName == "Folder" then
+		if child.ClassName == "Folder" or class == "StarterPlayerScripts" or class == "StarterCharacterScripts" or class == "StarterGui" then
 			fs.writeDir(location .. name .. "/")
 			convertInstance(child, location .. name .. "/")
 		elseif isModel(class) then
-			local out = roblox.serializeModel({ child })
-			writeToFS(child.Name, ".rbxm", location, out)
+			for i, nestedChild in nestedChildren do
+				if nestedChild == nil then break end
+				if nestedChild.ClassName == "MeshPart" then
+					print("Found Mesh " .. nestedChild.Name .. " and MeshID " .. nestedChild.MeshId)
+				end
+			end
+			out = roblox.serializeModel({ child })
+			writeToFS(name, ".rbxm", location, out)
 		elseif child:IsA("LuaSourceContainer") then 
-			writeToFS(child.Name, ".luau", location, child.Source)
+			if class == "ModuleScript" then
+				writeToFS(name, ".luau", location, child.Source)
+			elseif class == "LocalScript" then
+				writeToFS(name, ".client.luau", location, child.Source)
+			elseif class == "ServerScript" or class == "Script" then
+				writeToFS(name, ".server.luau", location, child.Source)
+			else
+				print("Non-Standard Script found of class " .. class .. " and name " .. name .. " please let one of the script developers know so that it can be properly handled, or convert the script to a standard type i.e. ServerScript, LocalScript, or ModuleScript.")
+			end
 		else
 			print("The class type " .. child.ClassName .. " on item " .. child.Name .. " slated for location " .. location .. " has not been implemented yet.") 
 			if io.prompt("confirm", "Would you like this file to be stored as a .rbxm (model) file?") then 
@@ -109,10 +123,12 @@ local workspace = game:GetService("Workspace")
 local replicatedstorage = game:GetService("ReplicatedStorage")
 local serverscriptservice = game:GetService("ServerScriptService")
 local starterplayer = game:GetService("StarterPlayer")
+local startergui = game:GetService("StarterGui")
  
  
 
 convertInstance(workspace, "./assets/")
 convertInstance(replicatedstorage, "./src/ReplicatedStorage/")
 convertInstance(serverscriptservice, "./src/ServerScriptService/")
-convertInstance(startplayer, "./src/StarterPlayer/")
+convertInstance(starterplayer, "./src/StarterPlayer/")
+convertInstance(startergui, "./assets/StarterGui/")
