@@ -16,3 +16,10 @@ SpringConstraint
 ScreenGui
 RemoteEvent
 SpawnLocation
+Camera
+Part
+SpawnLocation
+Terrain
+ScreenGui
+RemoteEvent
+SurfaceGui
