@@ -41,7 +41,7 @@
         "$path": "./assets/spawnlocation.rbxm"
       },
       "CommandSelector":{
-        "$path": "./assets/CommandSelector"
+        "$path": "./assets/CommandSelector.rbxm"
       },
       "$properties": {
       }
