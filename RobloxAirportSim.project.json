@@ -23,7 +23,7 @@
     },
     "StarterGui":{
       "$className": "StarterGui",
-      "$path": "./assets/StarterGui/"
+      "$path": "./src/StarterGui/"
     },
     "Workspace": {
       "$className": "Workspace",
