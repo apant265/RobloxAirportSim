@@ -81,8 +81,10 @@ function convertInstance(instance, location)
 				writeToFS(name, ".luau", location, child.Source)
 			elseif class == "LocalScript" then
 				writeToFS(name, ".client.luau", location, child.Source)
-			elseif class == "ServerScript" or class == "Script" then
+			elseif class == "ServerScript" then
 				writeToFS(name, ".server.luau", location, child.Source)
+			elseif class == "Script" then 
+				writeToFS(name, ".luau", location, child.Source)
 			else
 				print("Non-Standard Script found of class " .. class .. " and name " .. name .. " please let one of the script developers know so that it can be properly handled, or convert the script to a standard type i.e. ServerScript, LocalScript, or ModuleScript.")
 			end
