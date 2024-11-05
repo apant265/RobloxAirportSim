@@ -23,17 +23,13 @@
     },
     "StarterGui":{
       "$className": "StarterGui",
-      "$path": "./assets/StarterGui/"
+      "$path": "./src/StarterGui/"
     },
     "Workspace": {
       "$className": "Workspace",
       "Baseplate": {
         "$path": "./assets/Baseplate.rbxm"
       },
-      "IntroToStudioCatapult":{
-        "$path": "./assets/IntroToStudioCatapult/"
-      },
-      
       "SpawnLocation": {
         "$properties": {
           "Position": [
@@ -43,6 +39,9 @@
           ]
         },
         "$path": "./assets/spawnlocation.rbxm"
+      },
+      "CommandSelector":{
+        "$path": "./assets/CommandSelector.rbxm"
       },
       "$properties": {
       }
