@@ -8,3 +8,9 @@ Sound
 SpawnLocation
 RemoteEvent
 ScreenGui
+Terrain
+Model
+SpawnLocation
+Camera
+ScreenGui
+RemoteEvent
