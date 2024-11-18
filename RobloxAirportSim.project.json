@@ -30,6 +30,16 @@
       "Baseplate": {
         "$path": "./assets/Baseplate.rbxm"
       },
+      "Taxiways": {
+        "$path": "./assets/Taxiways/"
+      },
+      "Planes":{
+        "$path": "./assets/Plen.rbxm"
+      },
+      "ATC Tower": {
+          "$path": "./assets/ATC Tower.rbxm"
+      },
+      
       "SpawnLocation": {
         "$properties": {
           "Position": [
