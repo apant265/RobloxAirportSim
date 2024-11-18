@@ -14,3 +14,13 @@ SpawnLocation
 Camera
 ScreenGui
 RemoteEvent
+Camera
+Part
+Sound
+Model
+HingeConstraint
+SpringConstraint
+ScreenGui
+RemoteEvent
+SpawnLocation
+Terrain
