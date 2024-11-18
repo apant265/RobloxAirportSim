@@ -24,3 +24,14 @@ ScreenGui
 RemoteEvent
 SpawnLocation
 Terrain
+Camera
+Part
+SpawnLocation
+Terrain
+Sound
+Model
+HingeConstraint
+SpringConstraint
+ScreenGui
+RemoteEvent
+UnionOperation
