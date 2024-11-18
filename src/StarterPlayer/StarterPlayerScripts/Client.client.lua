@@ -1,7 +1,0 @@
-print("Hello world, from client!")
-print("This is Daniel Minks' Test")
-print("Hello World")
-print("hi guys")
-print("hgkhl;ghkfg")
-print("DEREREREREDERP")
-print("Gggggggggggggggggg")
