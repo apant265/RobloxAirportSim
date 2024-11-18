@@ -27,11 +27,15 @@
     },
     "Workspace": {
       "$className": "Workspace",
+
       "Baseplate": {
         "$path": "./assets/Baseplate.rbxm"
       },
       "IntroToStudioCatapult":{
         "$path": "./assets/IntroToStudioCatapult/"
+      },
+      "CommandConsole":{
+        "$path": "./assets/CommandConsoleModel.rbxm"
       },
       
       "SpawnLocation": {
