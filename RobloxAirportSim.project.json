@@ -30,8 +30,14 @@
       "Baseplate": {
         "$path": "./assets/Baseplate.rbxm"
       },
-      "IntroToStudioCatapult":{
-        "$path": "./assets/IntroToStudioCatapult/"
+      "Taxiways": {
+        "$path": "./assets/Taxiways/"
+      },
+      "Planes":{
+        "$path": "./assets/Plen.rbxm"
+      },
+      "ATC Tower": {
+          "$path": "./assets/ATC Tower.rbxm"
       },
       
       "SpawnLocation": {
