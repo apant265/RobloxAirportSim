@@ -28,3 +28,11 @@ SpawnLocation
 RemoteEvent
 ScreenGui
 SurfaceGui
+Model
+Part
+SpawnLocation
+RemoteEvent
+ScreenGui
+SurfaceGui
+Camera
+Terrain

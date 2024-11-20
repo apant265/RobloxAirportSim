@@ -1,5 +1,6 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
 
 local ConsoleButtonEvent = ReplicatedStorage.Events.ConsoleButtonEvent
 local RoleSelectionEvent = ReplicatedStorage.Events.RoleSelectionEvent
@@ -26,6 +27,7 @@ function initialize()
 	surfaceGUIs.Name = "surfaceGUIs"
 	enableSurfaceGUIs(false)
 	surfaceGUIs.Parent = playerGui
+	surfaceGUIs.Adornee = Workspace.CommandConsole.RogerButton
 
 	screenGUIs = screenGUIsPrefab:Clone()
 	screenGUIs.Name = "screenGUIs"
@@ -45,6 +47,7 @@ towerButton.Activated:Connect(function()
 	screenGUIs.RoleSelection.Enabled = false		
 	surfaceGUIs.Enabled = true
 end)
+
 local rogerButton = surfaceGUIs.RogerButtonGUI
 rogerButton.Activated:Connect(function()
 	print("Roger button was clicked!")
