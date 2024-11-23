@@ -27,6 +27,7 @@
     },
     "Workspace": {
       "$className": "Workspace",
+
       "Baseplate": {
         "$path": "./assets/Baseplate.rbxm"
       },
@@ -39,7 +40,9 @@
       "ATC Tower": {
           "$path": "./assets/ATC Tower.rbxm"
       },
-
+     "CommandConsole":{
+        "$path": "./assets/CommandConsoleModel.rbxm"
+      },
       
       "SpawnLocation": {
         "$properties": {
