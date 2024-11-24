@@ -36,3 +36,10 @@ ScreenGui
 SurfaceGui
 Camera
 Terrain
+Model
+Part
+UnionOperation
+SpawnLocation
+RemoteEvent
+ScreenGui
+SurfaceGui
