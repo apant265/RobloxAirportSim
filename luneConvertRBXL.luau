@@ -11,12 +11,13 @@ end
 
 local classes = fs.readFile(classFileName)
 local classT = {}
-classes = string.gmatch(classes, "([^\n]+)")
+classes = string.gmatch(classes, "([^%c]+)")
 for class in classes do
-	table.insert(classT,class)
+	classT[class] = true
 end
 classes = classT
 if classes == nil then classes = {} end
+
 function writeToFS(name, ext, location, file)
 	if not fs.isDir(location) then
 		fs.writeDir(location)
@@ -34,21 +35,16 @@ end
 
 
 function isModel(className)
-	if classes == "" then return false end
+	if classes == {} then return false end
 	if classes == nil then return false end
-	for _, class in classes do
-		if className == class then
-			return true
-		end
-	end
-	return false
+	if classes == "" then return false end
+	if classes[className] == nil then return false else return true end
 end
 
 function addClass(className)
-	if classes == nil then return end
-	classes[table.getn(classes)+1] = className
+	classes[className] = true
 	local out = ""
-	for _, class in classes do 
+	for class, _ in classes do 
 		out = out .. class .. "\n"
 	end
 	writeToFS(classFileName, "", "", out)
@@ -77,16 +73,19 @@ function convertInstance(instance, location)
 			out = roblox.serializeModel({ child })
 			writeToFS(name, ".rbxm", location, out)
 		elseif child:IsA("LuaSourceContainer") then 
-			if class == "ModuleScript" then
-				writeToFS(name, ".luau", location, child.Source)
-			elseif class == "LocalScript" then
-				writeToFS(name, ".client.luau", location, child.Source)
-			elseif class == "ServerScript" then
-				writeToFS(name, ".server.luau", location, child.Source)
-			elseif class == "Script" then 
-				writeToFS(name, ".luau", location, child.Source)
-			else
-				print("Non-Standard Script found of class " .. class .. " and name " .. name .. " please let one of the script developers know so that it can be properly handled, or convert the script to a standard type i.e. ServerScript, LocalScript, or ModuleScript.")
+			local convertScripts = false
+			if convertScripts == true then
+				if class == "ModuleScript" then
+					writeToFS(name, ".luau", location, child.Source)
+				elseif class == "LocalScript" then
+					writeToFS(name, ".client.luau", location, child.Source)
+				elseif class == "ServerScript" then
+					writeToFS(name, ".server.luau", location, child.Source)
+				elseif class == "Script" then 
+					writeToFS(name, ".luau", location, child.Source)
+				else
+					print("Non-Standard Script found of class " .. class .. " and name " .. name .. " please let one of the script developers know so that it can be properly handled, or convert the script to a standard type i.e. ServerScript, LocalScript, or ModuleScript.")
+				end
 			end
 		else
 			print("The class type " .. child.ClassName .. " on item " .. child.Name .. " slated for location " .. location .. " has not been implemented yet.") 
