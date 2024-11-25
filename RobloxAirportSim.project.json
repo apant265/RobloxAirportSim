@@ -25,8 +25,13 @@
       "$className": "StarterGui",
       "$path": "./src/StarterGui/"
     },
+    
     "Workspace": {
       "$className": "Workspace",
+
+      "Terrain": {
+        "$path": "./assets/Terrain.rbxm"
+      },
 
       "Baseplate": {
         "$path": "./assets/Baseplate.rbxm"
