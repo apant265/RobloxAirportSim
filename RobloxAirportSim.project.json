@@ -41,7 +41,7 @@
           "$path": "./assets/ATC Tower.rbxm"
       },
      "CommandConsole":{
-        "$path": "./assets/CommandConsoleModel.rbxm"
+        "$path": "./assets/CommandConsole.rbxm"
       },
       
       "SpawnLocation": {
