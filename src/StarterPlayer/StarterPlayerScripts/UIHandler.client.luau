@@ -7,8 +7,30 @@ local RoleSelectionEvent = ReplicatedStorage.Events.RoleSelectionEvent
 local surfaceGUIsPrefab = ReplicatedStorage:WaitForChild("SurfaceGUIsPrefab")
 local screenGUIsPrefab = ReplicatedStorage:WaitForChild("ScreenGUIsPrefab")
 
-local surfaceGUIs = Instance.new("Folder")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local surfaceGUIs = surfaceGUIsPrefab:Clone()
+surfaceGUIs.Parent = playerGui
+surfaceGUIs.Name = "SurfaceGUIs"
+
 local screenGUIs = screenGUIsPrefab:Clone()
+
+local roles = {"Tower", "Ground", "Approach", "Departure", "Center"}
+local commandConsoles = {
+	Tower = Workspace.CommandConsoles.TowerCommandConsole,
+	Ground = Workspace.CommandConsoles.GroundCommandConsole,
+	Approach = Workspace.CommandConsoles.ApproachCommandConsole,
+	Departure = Workspace.CommandConsoles.DepartureCommandConsole,
+	Center = Workspace.CommandConsoles.CenterCommandConsole}
+
+
+local roleSurfaceGUIs = {
+	Tower = playerGui.SurfaceGUIs.Tower,
+	Ground = playerGui.SurfaceGUIs.Ground,
+	Approach = playerGui.SurfaceGUIs.Approach,
+	Departure = playerGui.SurfaceGUIs.Departure,
+	Center = playerGui.SurfaceGUIs.Center}
 
 local function enableSurfaceGUIs(isEnabled: boolean)
 	for _,surfaceGUI in surfaceGUIs:GetChildren() do
@@ -20,18 +42,19 @@ local function enableScreenGUIs(isEnabled: boolean)
 	screenGUIs.Enabled = isEnabled
 end
 
-local player = Players.LocalPlayer
-local playerGui = player:WaitForChild("PlayerGui")
+local function RoleCommandConsoleSetup(Role)
+	roleSurfaceGUIs[Role].Adornee = commandConsoles[Role].RogerButton
+	roleSurfaceGUIs[Role].Face = "Left"
+end
+
 local function CommandConsoleSetup()
-	surfaceGUIs.Parent = playerGui
-	surfaceGUIs.Name = "SurfaceGUIs"
-	local RogerButton = surfaceGUIsPrefab:Clone()
-	RogerButton.Name = "RogerButtonGUI"
-	RogerButton.Button.Name = "RogerButton"
-	RogerButton.Parent = surfaceGUIs
-	RogerButton.Adornee = Workspace.CommandConsole.RogerButton
-	RogerButton.Face = "Left"
+	RoleCommandConsoleSetup("Tower")
+	RoleCommandConsoleSetup("Ground")
+	RoleCommandConsoleSetup("Center")
+	RoleCommandConsoleSetup("Approach")
+	RoleCommandConsoleSetup("Departure")
 end	
+
 
 function initialize()
 	-- Add new gui instance to player gui, hidden
@@ -47,23 +70,29 @@ function initialize()
 end
 
 initialize()
-local towerButton = screenGUIs.RoleSelection.TowerSelection
-towerButton.Activated:Connect(function()
-	print("Tower button was clicked!")
-	screenGUIs.RoleSelection.Enabled = false		
-	enableSurfaceGUIs(true)
-end)
+
+-- Setup the role selection buttons
+local RoleSelectionEvent = ReplicatedStorage.Events.RoleSelectionEvent
+for _,button in screenGUIs.RoleSelection:GetChildren() do
+	button.Activated:Connect(function()
+		RoleSelectionEvent:FireServer(""..button.Name)
+		print("" .. button.Name .." button was clicked!")
+		screenGUIs.RoleSelection.Enabled = false
+		enableScreenGUIs(false)
+	end)
+	end
 
 
 -- Begin config for Command Console Buttons
 
 local CommandConsoleEvent = ReplicatedStorage.Events.ConsoleButtonEvent
 
+for _, gui in roleSurfaceGUIs do
+	for _, button in gui:GetChildren() do
+		button.Activated:Connect(function()
+		 print("" .. button.Name .. " button was clicked! (Client)")
+		 CommandConsoleEvent:FireServer(button.Name)
 
-local rogerButton = surfaceGUIs.RogerButtonGUI.RogerButton
-rogerButton.Activated:Connect(function()
-	print("Roger button was clicked! (Client)")
-	CommandConsoleEvent:FireServer("Roger")
-	
-end)
-
+		end)
+end
+end
