@@ -45,18 +45,11 @@
       "ATC Tower": {
           "$path": "./assets/ATC Tower.rbxm"
       },
-     "CommandConsole":{
-        "$path": "./assets/CommandConsole.rbxm"
+     "CommandConsoles":{
+        "$path": "./assets/CommandConsoles"
       },
       
       "SpawnLocation": {
-        "$properties": {
-          "Position": [
-            0.0,
-            0.0,
-            0.0
-          ]
-        },
         "$path": "./assets/spawnlocation.rbxm"
       },
       
