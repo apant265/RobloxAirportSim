@@ -1,0 +1,60 @@
+{
+  "name": "Roblox Airport Sim",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "$path": "src/ReplicatedStorage"
+    },
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "$path": "src/ServerScriptService"
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "$path": "src/StarterPlayer/StarterPlayerScripts"
+      },
+      "StarterCharacterScripts": {
+        "$className": "StarterCharacterScripts",
+        "$path": "src/StarterPlayer/StarterCharacterScripts"
+      }
+    },
+    "StarterGui":{
+      "$className": "StarterGui",
+      "$path": "./src/StarterGui/"
+    },
+    
+    "Workspace": {
+      "$className": "Workspace",
+
+      "Terrain": {
+        "$path": "./assets/Terrain.rbxm"
+      },
+
+      "Baseplate": {
+        "$path": "./assets/Baseplate.rbxm"
+      },
+      "Taxiways": {
+        "$path": "./assets/Taxiways/"
+      },
+      "Planes":{
+        "$path": "./assets/Plen.rbxm"
+      },
+      "ATC Tower": {
+          "$path": "./assets/ATC Tower.rbxm"
+      },
+     "CommandConsoles":{
+        "$path": "./assets/CommandConsoles"
+      },
+      
+      "SpawnLocation": {
+        "$path": "./assets/spawnlocation.rbxm"
+      },
+      
+      "$properties": {
+      }
+    }
+  }
+}
